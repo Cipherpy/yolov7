@@ -169,7 +169,7 @@ def detect(uploaded_file_path):
                         else:  # stream
                             fps, w, h = 30, im0.shape[1], im0.shape[0]
                             save_path += '.mp4'
-                        vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'H264'), fps, (w, h))
+                        vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'h264_nvenc'), fps, (w, h))
                     vid_writer.write(im0)
     vid_writer.release()
     if save_txt or save_img:
