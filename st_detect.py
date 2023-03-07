@@ -209,25 +209,25 @@ if __name__ == '__main__':
     #check_requirements(exclude=('pycocotools', 'thop'))
     streamlit_input_file()
     
-#     uploaded_file = st.file_uploader("Choose a file", type="mp4")
-#     uploaded_file_path = 'temp.mp4'
-#     if uploaded_file is not None:
+    uploaded_file = st.file_uploader("Choose a file", type="mp4")
+    uploaded_file_path = 'temp.mp4'
+    if uploaded_file is not None:
             
-#             # Save the uploaded file as temp.mp4
-#             with open(uploaded_file_path, "wb") as f:
-#                 f.write(uploaded_file.getbuffer())
+            # Save the uploaded file as temp.mp4
+            with open(uploaded_file_path, "wb") as f:
+                f.write(uploaded_file.getbuffer())
 
-#             # Get path from the uploaded file
-#             display_video(uploaded_file_path)
-#     with st.spinner("Detecting..."):      
+            # Get path from the uploaded file
+            display_video(uploaded_file_path)
+    with st.spinner("Detecting..."):      
 
-#         if uploaded_file:
-#             with torch.no_grad():
-#                 if opt.update:  # update all models (to fix SourceChangeWarning)
-#                     for opt.weights in ['yolov7.pt']:
-#                         detect(uploaded_file_path)
-#                         strip_optimizer(opt.weights)
-#                 else:
-#                     detect(uploaded_file_path)
-#         else:
-#             st.write("No file uploaded")
+        if uploaded_file:
+            with torch.no_grad():
+                if opt.update:  # update all models (to fix SourceChangeWarning)
+                    for opt.weights in ['yolov7.pt']:
+                        detect(uploaded_file_path)
+                        strip_optimizer(opt.weights)
+                else:
+                    detect(uploaded_file_path)
+        else:
+            st.write("No file uploaded")
