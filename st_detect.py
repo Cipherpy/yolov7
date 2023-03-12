@@ -16,7 +16,7 @@ from utils.torch_utils import select_device, load_classifier, time_synchronized,
 
 import streamlit as st
 import os
-
+os.environ['OPENCV_VIDEOIO_PRIORITY_FFMPEG'] = '1000'
 # Input a file in streamlit\
 def streamlit_input_file():
     with st.sidebar:
