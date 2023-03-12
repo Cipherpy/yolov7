@@ -167,7 +167,7 @@ def detect(uploaded_file_path):
                             h = int(vid_cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
                         else:  # stream
                             fps, w, h = 30, im0.shape[1], im0.shape[0]
-                            save_path += '.mp4'
+                            save_path += '.webm'
                         vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'vp90'), fps, (w, h))
                     vid_writer.write(im0)
     vid_writer.release()
@@ -175,7 +175,7 @@ def detect(uploaded_file_path):
         s = f"\n{len(list(save_dir.glob('labels/*.txt')))} labels saved to {save_dir / 'labels'}" if save_txt else ''
         #print(f"Results saved to {save_dir}{s}")
     for i in os.listdir(save_dir):
-        if i.endswith(".mp4"):
+        if i.endswith(".webm"):
             print(i)
             path_video=os.path.join(save_dir, i)
             print(path_video)
